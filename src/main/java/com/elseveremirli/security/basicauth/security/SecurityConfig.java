@@ -24,9 +24,9 @@ public class SecurityConfig {
         security
                 .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(x -> x.requestMatchers("/public/**").permitAll())
-                .authorizeHttpRequests(x->x.requestMatchers("/private/**").hasRole(Role.ROLE_ADMIN.getValue()))
-                .authorizeHttpRequests(x->x.anyRequest().authenticated())
+//                .authorizeHttpRequests(x -> x.requestMatchers("/public/**").permitAll())
+//                .authorizeHttpRequests(x->x.requestMatchers("/private/**").hasRole(Role.ROLE_ADMIN.getValue()))
+                .authorizeHttpRequests(x->  x.anyRequest().permitAll())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults())
         ;
